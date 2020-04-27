@@ -1,0 +1,41 @@
+<form class="reg-form" [formGroup]="regForm">
+    <div class="form-field" [attr.sup-msg]="supMsgName" [ngClass]="{
+        vaildMsgColor: !name.value,
+        invaildMsgColor: !name.valid && name.value }">
+        <div class="input-field" [ngClass]="{
+            valid: name.valid && name.value,
+            invalid: !name.valid && name.value}">
+            <span class="title">Имя</span>
+            <input class="input" type="text" formControlName="name">
+        </div>
+    </div>
+    <div class="form-field" [attr.sup-msg]="supMsgEmail" [ngClass]="{
+        vaildMsgColor: !email.value,
+        invaildMsgColor: !email.valid && email.value }">
+        <div class="input-field" [ngClass]="{
+            valid: email.valid && email.value,
+            invalid: !email.valid && email.value }">
+            <span class="title">Email</span>
+            <input class="input" type="text" formControlName="email">
+        </div>
+    </div>
+    <div class="form-field" [attr.sup-msg]="supMsgPassword" [ngClass]="{
+        vaildMsgColor: !password.value,
+        invaildMsgColor: !password.valid && password.value }">
+        <div class="input-field" [ngClass]="{
+            valid: password.valid && password.value,
+            invalid: !password.valid && password.value }">
+            <span class="title">Пароль</span>
+            <input class="input" type="password" formControlName="password">
+        </div>
+    </div>
+    <button class="reg-form_button" type="submit"
+    [disabled]="!regForm.valid"
+    [@load]="isLoad ? 'end' : 'start'"
+    (click)="signIn()">
+        <span *ngIf="!isLoad">Регистрация</span>
+        <span *ngIf="isLoad">
+            <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="14px" height="14px" viewBox="0 0 128 128" xml:space="preserve"><g><path d="M62.77 23.65v7.95L90.2 16.1 62.37.2l.4 8.35s-29.52 1.54-46.1 27.43c-18.98 29.6.4 58.03.4 58.03S2.74 63 24.2 39.97c18.4-19.75 38.57-16.3 38.57-16.3zm2.03 80.9V96.6l-27.44 15.5L65.2 128l-.4-8.35s29.53-1.54 46.13-27.43c18.98-29.6-.4-58.03-.4-58.03s14.3 31-7.16 54.04c-18.4 19.75-38.57 16.3-38.57 16.3z" fill="#ffffff" fill-opacity="1"/><animateTransform attributeName="transform" type="rotate" from="0 64 64" to="180 64 64" dur="720ms" repeatCount="indefinite"></animateTransform></g></svg>
+        </span>
+    </button>
+</form>

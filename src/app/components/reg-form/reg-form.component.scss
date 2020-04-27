@@ -1,0 +1,77 @@
+@keyframes width-reduction {
+    0% { width: 125px; }
+    100% { width: 40px; }
+}
+div, form, input, span, button{ box-sizing: border-box; }
+.reg-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .vaildMsgColor{ color: #888EA7; }
+    .invaildMsgColor{ color: #E63782; }
+    .form-field{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        &::before{
+            content: "\a0";
+            width: 100%;
+            height: 11px;
+            padding: 0px 18px;
+            font-size: 9px;
+            font-family: "Roboto-Light";
+            color: inherit;
+        }
+        &[sup-msg]:focus-within::before{
+            content: attr(sup-msg);
+        }
+        .input-field{
+            display: flex;
+            width: 100%;
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: 2px solid #E6ECF5;
+            &:focus-within{ border: 2px solid #22A4DC; }
+            .title{
+                width: 65px;
+                color: #888EA7;
+                font-size: 14px;
+                font-family: "Roboto-Regular";
+            }
+            .input{
+                font-family: "Roboto-Light";
+                font-size: 14px;
+                flex-grow: 1;
+                border: none;
+                outline: none;
+            }
+            
+        }
+        .valid{ border: 2px solid #AAC72E66; }
+        .invalid{ border: 2px solid #E63782; }
+    }
+    .reg-form_button{
+        display: flex;
+        justify-content: center;
+        width: 125px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #22A4DC;
+        font-family: "Roboto-Light";
+        font-size: 14px;
+        color: #FFFFFF;
+        border: none;
+        outline: none;
+        padding: 10px 21px;
+        margin-top: 15px;
+        transition: 0.2s;
+    }
+    .reg-form_button:hover:enabled{
+        box-shadow: 0 0 8px #aac72e66;
+    }
+    .reg-form_button:disabled{
+        opacity: 0.7;
+    }
+}
